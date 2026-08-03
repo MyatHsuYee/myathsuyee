@@ -1,0 +1,507 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+:root{
+  /* --- color --- */
+  --bg:            #FBF6F1;   /* warm ivory canvas */
+  --surface:       #FFFFFF;
+  --forest:        #38452F;   /* deep botanical green — nav, headings */
+  --forest-soft:   #5C6E4C;
+  --rose:          #C08578;   /* dusty rose accent */
+  --blush:         #F2E3DD;   /* pale blush fill */
+  --gold:          #AD8A55;   /* thin luxury gold line/accent */
+  --ink:           #2B2620;
+  --ink-soft:      #756B60;
+  --line:          rgba(43,38,32,0.12);
+
+  /* --- type --- */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body:    'Jost', 'Helvetica Neue', sans-serif;
+
+  /* --- rhythm --- */
+  --section-pad: clamp(4rem, 9vw, 8rem);
+  --gutter: clamp(1.5rem, 6vw, 6rem);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+/* ---------------------------------- reset ---------------------------------- */
+*, *::before, *::after{ box-sizing: border-box; }
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width: 100%; display: block; }
+ul{ margin: 0; padding: 0; }
+a{ color: inherit; text-decoration: none; }
+h1, h2, h3{ font-family: var(--font-display); font-weight: 500; margin: 0; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *, *::before, *::after{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* focus visibility (quality floor) */
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* ---------------------------------- eyebrow ---------------------------------- */
+.eyebrow{
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+/* ---------------------------------- botanical divider (signature) ---------------------------------- */
+section::before{
+  content: "";
+  display: block;
+  grid-column: 1/-1;
+  width: 64px;
+  height: 34px;
+  margin: 0 auto 1.5rem ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 34'%3E%3Cpath d='M2 30 C 20 30, 24 10, 32 4 C 40 10, 44 30, 62 30' fill='none' stroke='%23AD8A55' stroke-width='1'/%3E%3Cpath d='M32 4 C 27 10 24 14 20 15 C 24 17 29 15 32 10' fill='%235C6E4C'/%3E%3Cpath d='M32 4 C 37 10 40 14 44 15 C 40 17 35 15 32 10' fill='%235C6E4C'/%3E%3C/svg%3E");
+  opacity: 0.9;
+}
+header::before{ content: none; }
+
+/* ================================= HEADER / HERO ================================= */
+header{
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  overflow: hidden;
+}
+header img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+header::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(30,28,20,0.55) 0%, rgba(30,28,20,0.25) 40%, rgba(30,28,20,0.6) 100%);
+}
+
+.topnav{
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding: 1.75rem var(--gutter);
+  position: relative;
+  z-index: 5;
+}
+.topnav .wordmark{
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+}
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-left: auto;
+}
+.nav-links li{
+  list-style: none;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.nav-links li a{
+  position: relative;
+  padding-bottom: 4px;
+}
+.topnav li a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: right 0.35s var(--ease);
+}
+.nav-links li a:hover::after{ right: 0; }
+
+header h1{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(3rem, 6vw, 4.4rem);
+  line-height: 1.25;
+  max-width: 14ch;
+  margin: 0 auto;
+  padding: 1rem var(--gutter);
+  position: relative;
+  z-index: 2;
+  letter-spacing: 0.01em;
+}
+
+header > a{
+  align-self: center;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  position: relative;
+  z-index: 2;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.75);
+  padding: 0.95em 2.4em;
+  border-radius: 999px;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+header > a:hover{
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #221f18;
+}
+
+/* ================================= SECTIONS (shared) ================================= */
+main > section{
+  padding: var(--section-pad) var(--gutter);
+}
+
+/* ---------------------------------- fade-in animation (pure CSS, no JS) ---------------------------------- */
+@keyframes fadeInUp{
+  from{ opacity: 0; transform: translateY(26px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* Hero: plays once on page load */
+.topnav{ animation: fadeInUp 0.9s var(--ease) both; }
+header h1{ animation: fadeInUp 1s var(--ease) 0.15s both; }
+header > a{ animation: fadeInUp 1s var(--ease) 0.35s both; }
+
+@supports (animation-timeline: view()){
+  .about-photo img,
+  #SHOP > div,
+  .service-list li,
+  .service-name,
+  .shop-info img,
+  .shop-info span,
+  .n-form{
+    animation: fadeInUp 0.6s var(--ease) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+}
+
+/* ================================= ABOUT ================================= */
+#ABOUT{
+  background: var(--surface);
+}
+.about-body{
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+.about-body p{ margin: 0 0 1.1em; }
+.about-body p:first-child{
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--forest);
+  line-height: 1.6;
+}
+
+.about-photo{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  max-width: 1000px;
+  margin: clamp(3rem, 7vw, 5rem) auto 0;
+  align-items: center;
+}
+.about-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+  box-shadow: 0 20px 40px -24px rgba(43,38,32,0.35);
+}
+.about-photo img:nth-child(1){ grid-column: 1 / 4; aspect-ratio: 4/5; align-self: start; }
+.about-photo img:nth-child(2){ grid-column: 4 / 7; aspect-ratio: 3/4; align-self: end; margin-top: -10%; }
+.about-photo img:nth-child(3){ grid-column: 1 / -1; aspect-ratio: 19/9; margin-top: -3% ;}
+.about-photo img:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 28px 50px -22px rgba(43,38,32,0.42);
+}
+
+/* ================================= SHOP ================================= */
+#SHOP{
+  background: var(--blush);
+}
+#SHOP > .eyebrow{ margin-bottom: 3rem; }
+
+#SHOP{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+}
+#SHOP > .eyebrow{ grid-column: 1 / -1; }
+
+#SHOP > div{
+  background: var(--surface);
+  padding: 0.85rem 0.85rem 1.4rem;
+  border-radius: 3px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+#SHOP > div:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 24px 40px -20px rgba(43,38,32,0.3);
+}
+#SHOP > div img{
+  order: -1;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 2px;
+  transition: transform 0.6s var(--ease);
+}
+#SHOP > div:hover img{ transform: scale(1.045); }
+
+.flowers-name{
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--forest);
+}
+.flowers-price{
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--rose);
+}
+
+/* ================================= SERVICES ================================= */
+#SERVICES{
+  background: var(--forest);
+  color: #F3EFE7;
+  text-align: center;
+}
+#SERVICES .eyebrow{ color: var(--gold); }
+
+.service{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2.5rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.service-name{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #fff;
+  position: relative;
+}
+
+.service-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 0.9rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.service-list li{
+  display: inline-block;
+  padding: 0.65em 1.4em;
+  border: 1px solid rgba(243,239,231,0.3);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: #F3EFE7;
+  transition: border-color 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease);
+}
+.service-list li:hover{
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #221f18;
+}
+
+/* ================================= CONTACT ================================= */
+#CONTACT{
+  background: var(--surface);
+}
+#CONTACT{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+#CONTACT > .eyebrow{ grid-column: 1 / -1; }
+
+.shop-info{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.5rem;
+  row-gap: 1.1rem;
+  align-content: start;
+}
+.shop-info img{
+  grid-column: 1 / -1;
+  width: 100%;
+  aspect-ratio: 16/12;
+  object-fit: cover;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
+}
+.shop-info span:nth-of-type(odd){
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rose);
+  align-self: start;
+  padding-top: 0.15em;
+}
+.shop-info span:nth-of-type(even){
+  color: var(--ink-soft);
+}
+.contact-form{ grid-column: 1 / -1; margin-top: 1rem; }
+.contact-form{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--forest);
+  color: var(--rose);
+}
+
+.n-form{
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.75rem;
+  margin-top: 0.75rem;
+}
+.n-form input{
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 0.5em 0;
+}
+.n-form input::placeholder{ color: var(--ink-soft); }
+.n-form input:focus{ outline: none; }
+.n-form button{
+  border: 1px solid var(--forest);
+  background: transparent;
+  color: var(--forest);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.85em 1.6em;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+.n-form button:hover{
+  background: var(--forest);
+  color: #fff;
+}
+
+/* ================================= FOOTER ================================= */
+footer{
+  padding: 0 var(--gutter) 3rem;
+  text-align: center;
+}
+footer .rule{
+  border: none;
+  border-top: 1px solid var(--line);
+  max-width: 200px;
+  margin: 0 auto 1.5rem;
+}
+footer p{
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* =================================================================
+   TABLET  (≥768px)
+================================================================= */
+@media (min-width: 768px){
+  #SHOP{ grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  #CONTACT{
+    max-width: 900px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  #CONTACT > .eyebrow{ grid-column: 1 / -1; }
+  .shop-info{ max-width: none; margin: 0; }
+  .n-form{ flex-direction: row; align-items: flex-end; gap: 0.75rem; border: none; padding-bottom: 0; }
+  .n-form input{ flex: 1; }
+  .n-form button{ align-self: auto; }
+  .service{ gap: 2rem; }
+}
+
+/* =================================================================
+   LAPTOP / DESKTOP  (≥1024px)
+================================================================= */
+@media (min-width: 1024px){
+  header h1{ font-size: clamp(2.4rem, 5vw, 4.2rem); max-width: 14ch; }
+  .about-body{ font-size: 1.02rem; }
+  .about-body p:first-child{ font-size: 1.4rem; }
+  .service-name{ font-size: clamp(1.8rem, 3vw, 2.8rem); }
+  .service-name:first-child::after{
+    content: "—";
+    position: absolute;
+    right: -1.3em;
+    color: var(--gold);
+    font-style: normal; 
+  }
+}
+
+/* Small phones — extra breathing room fix */
+@media (max-width: 380px){
+  #SHOP{ grid-template-columns: 1fr; }
+  header h1{ font-size: 1.6rem; }
+}

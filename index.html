@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYAT HSU YEE | PORTFOLIO</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="topnav">
+            <span class="wordmark">MYAT HSU YEE</span>
+            <ul class="nav-links">
+                <li><a href="#about">about</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#works">works</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-texture"></div>
+            <div class="hero-content">
+                <p class="eyebrow">my journey</p>
+                <h1 class="hero-title">Myat Hsu Yee</h1>
+                <p class="hero-role">システムエンジニアを目指す学生</p>
+                <a href="#about" class="explore-btn">Explore!</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="about">
+            <p class="eyebrow">01 — about</p>
+            <h2>自己紹介</h2>
+            <hr class="rule">
+            <div class="about-grid">
+                <p class="about-lead">ミャンマー出身の、<br>挑戦し続ける学生です。</p>
+                <div class="about-body">
+                    <p>はじめまして、ミャットスーイーです。ミャンマー出身で、現在は日本の専門学校でシステムエンジニアを目指して勉強しています。Web制作やプログラミングに興味があり、新しい知識や技術を学ぶことを楽しんでいます。</p>
+                    <p>私は何事にも前向きに挑戦し、分からないことがあっても最後まで諦めずに取り組むことを大切にしています。将来は、学んだ知識や技術を活かし、多くの人の役に立つシステムエンジニアになることが目標です。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <p class="eyebrow">02 — skills</p>
+            <h2>使える技術</h2>
+            <hr class="rule">
+            <div class="skills-grid">
+                <div class="skill-card dark">
+                    <span class="skill-num">01</span>
+                    <span class="skill-name">HTML</span>
+                    <p class="skill-desc">セマンティックな構造でページを組み立てられる</p>
+                </div>
+                <div class="skill-card light">
+                    <span class="skill-num">02</span>
+                    <span class="skill-name">CSS</span>
+                    <p class="skill-desc">レイアウト・レスポンシブ対応ができる</p>
+                </div>
+                <div class="skill-card light">
+                    <span class="skill-num">03</span>
+                    <span class="skill-name">Database</span>
+                    <p class="skill-desc">基本的なデータの設計・管理を理解している</p>
+                </div>
+                <div class="skill-card dark">
+                    <span class="skill-num">04</span>
+                    <span class="skill-name">Java</span>
+                    <p class="skill-desc">基本文法とプログラムの構造を理解している</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="works">
+            <p class="eyebrow">03 — works</p>
+            <h2>作品</h2>
+            <hr class="rule">
+            <p class="works-lead">円をタップすると、作品の詳細が下に表示されます。</p>
+
+            <div class="works-tabs">
+
+                <input type="radio" name="worktab" id="tab1" class="work-radio" checked>
+                <label for="tab1" class="work-circle">
+                    <span class="circle-img"><img src="img/ecc.png" alt="School Assignments"></span>
+                    <span class="circle-name">School Assignments</span>
+                </label>
+
+                <input type="radio" name="worktab" id="tab2" class="work-radio">
+                <label for="tab2" class="work-circle">
+                    <span class="circle-img"><img src="img/inside.jpg" alt="BLOOM & BLOSSOM"></span>
+                    <span class="circle-name">BLOOM &amp; BLOSSOM</span>
+                </label>
+
+                <input type="radio" name="worktab" id="tab3" class="work-radio">
+                <label for="tab3" class="work-circle">
+                    <span class="circle-img"><img src="img/cake.jpeg" alt="As a Beginner"></span>
+                    <span class="circle-name">As a Beginner</span>
+                </label>
+
+                <div class="work-panels">
+
+                    <div class="work-panel" id="panel1">
+                        <div class="panel-image">
+                            <img src="img/3.png" alt="School Assignments">
+                        </div>
+                        <div class="panel-text">
+                            <p class="panel-tag">HTML / CSS</p>
+                            <h3>School Assignments</h3>
+                            <p class="panel-desc">学校の課題として制作した、架空のイタリアンレストラン「ECC Pizza」のWebサイトです。</p>
+                            <dl class="panel-details">
+                                <dt>工夫した点</dt>
+                                <dd>料理の魅力が伝わる写真と、シンプルで見やすいレイアウトにこだわりました。</dd>
+                                <dt>苦労した点</dt>
+                                <dd>画像の配置や余白を細かく調整し、自然な見た目に仕上げました。</dd>
+                            </dl>
+                            <a href="./pizzamenu.html" class="panel-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="work-panel" id="panel2">
+                        <div class="panel-image">
+                            <img src="img/inside.jpg" alt="BLOOM & BLOSSOM">
+                        </div>
+                        <div class="panel-text">
+                            <p class="panel-tag">HTML / CSS</p>
+                            <h3>BLOOM &amp; BLOSSOM</h3>
+                            <p class="panel-desc">
+                                「花を選ぶ時間まで特別になる」そんな体験をイメージして制作したWebサイトです。
+                            </p>
+                            <dl class="panel-details">
+                                <dt>工夫した点</dt>
+                                <dd>スクロールするたびに楽しめるアニメーションを取り入れました。</dd>
+                                <dt>苦労した点</dt>
+                                <dd>レスポンシブ対応を繰り返し調整し、どの画面でも美しく表示できるよう工夫しました。</dd>
+                            </dl>
+                            <a href="./flowershop.html" class="panel-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="work-panel" id="panel3">
+                        <div class="panel-image">
+                            <img src="img/cake.png" alt="As a Beginner">
+                        </div>
+                        <div class="panel-text">
+                            <p class="panel-tag">HTML / CSS</p>
+                            <h3>As a Beginner</h3>
+                            <p class="panel-desc">Web制作を始めた頃の「好き」を詰め込んだ、ケーキショップのWebサイトです。</p>
+                            <dl class="panel-details">
+                                <dt>工夫した点</dt>
+                                <dd>写真が主役になるよう、やさしく温かみのあるデザインを意識しました。</dd>
+                                <dt>苦労した点</dt>
+                                <dd>CSSでレイアウトを調整し、見やすいデザインに仕上げました。</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <p class="eyebrow">04 — contact</p>
+            <h2>連絡先</h2>
+            <hr class="rule">
+
+            <div class="wrap contact-grid">
+
+                <div class="contact-info">
+                    <p class="contact-lead">お気軽にご連絡ください。</p>
+                    <div class="contact-buttons">
+                        <a href="mailto:myathsuyee.example@mail.com" class="more-btn">
+                            <span>MAIL</span><span class="more-x">×</span>
+                        </a>
+                        <a href="#" class="more-btn">
+                            <span>PHONE</span><span class="more-x">×</span>
+                        </a>
+                        <a href="#" class="more-btn">
+                            <span>INSTAGRAM</span><span class="more-x">×</span>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form" action="#" method="post">
+                    <span class="eyebrow">Send a Message</span>
+                    <h3 class="form-title">Contact Form</h3>
+
+                    <div class="row-2">
+                        <div class="field">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="first-name" placeholder="John" required>
+                        </div>
+                        <div class="field">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" placeholder="Smith" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="abc123@gmail.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">送信する</button>
+                </form>
+
+            </div>
+        </section>
+
+        <div class="scroll-top"><a href="#"></a></div>
+
+    </main>
+
+    <footer>
+        <hr class="rule">
+        <p>© 2026 MYAT HSU YEE — PORTFOLIO</p>
+    </footer>
+
+</body>
+</html>
